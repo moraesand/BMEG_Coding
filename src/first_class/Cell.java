@@ -7,7 +7,6 @@ public class Cell {
     private int y;
     private int id;
 
-    //
     public Cell(int strength, int x, int y, int id) {
         this.strength = 0;
         this.x = 0;
