@@ -1,6 +1,6 @@
 package first_class;
 
-public class cell {
+public class Cell {
     // private for CPEN 221
     private int strength;
     private int x;
@@ -8,7 +8,7 @@ public class cell {
     private int id;
 
     //
-    public cell (int strength, int x, int y, int id) {
+    public Cell(int strength, int x, int y, int id) {
         this.strength = 0;
         this.x = 0;
         this.y = 0;
