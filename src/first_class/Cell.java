@@ -7,17 +7,20 @@ public class Cell {
     private int y;
     private int id;
 
-    public Cell(int strength, int x, int y, int id) {
+    // default constructor
+    public Cell() {
         this.strength = 0;
         this.x = 0;
         this.y = 0;
         this.id = 0;
+    }
 
+    // constructor w/ parameters
+    public Cell(int strength, int x, int y, int id) {
         set_strength(strength);
         set_x(x);
         set_y(y);
         set_id(id);
-
     }
 
     // getter functions
