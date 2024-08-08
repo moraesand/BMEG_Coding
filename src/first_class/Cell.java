@@ -1,5 +1,9 @@
 package first_class;
 
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.ArrayList;
+
 public class Cell {
     // private for CPEN 221
     private int strength;
@@ -7,12 +11,17 @@ public class Cell {
     private int y;
     private int id;
 
+    private HashMap<String, Double> chemical_concentrations;
+    private HashSet<String> signal_molecules;
+
     // default constructor
     public Cell() {
         this.strength = 0;
         this.x = 0;
         this.y = 0;
         this.id = 0;
+        this.signal_molecules = new HashSet<>();
+        this.chemical_concentrations = new HashMap<>();
     }
 
     // constructor w/ parameters
@@ -69,9 +78,30 @@ public class Cell {
         this.id = id;
     }
 
+    public void add_chemical_concentrations(String chemical_name, double concentration) {
+        chemical_concentrations.put(chemical_name, concentration);
+    }
+
+    public void get_chemical_concentrations(String chemical_name) {
+        chemical_concentrations.getorDefault(chemical_name, 0.0);
+    }
+
+    public void add_signal_molecule(String molecule) {
+        signal_molecules.add(molecule);
+    }
+
+    public boolean check_signal_molecules(String molecule) {
+        // returns the signal molecule it contains so code know what it is and how to deal with it
+        return signal_molecules.contains(molecule);
+    }
+
     // returns nothing
-    public void interactNeighbours (Cell[] neighbours) {
-        // empty for now
+    public void interactNeighbours (ArrayList<Cell> neighbours) {
+        if (neighbours.size() > 6) {
+            System.out.println("Too crowded, potential to die!");
+        } else {
+            System.out.println("System is healthy");
+        }
     }
 
 }
