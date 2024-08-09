@@ -83,7 +83,7 @@ public class Cell {
     }
 
     public void get_chemical_concentrations(String chemical_name) {
-        chemical_concentrations.getorDefault(chemical_name, 0.0);
+        chemical_concentrations.getOrDefault(chemical_name, 0.0);
     }
 
     public void add_signal_molecule(String molecule) {
@@ -95,14 +95,16 @@ public class Cell {
         return signal_molecules.contains(molecule);
     }
 
-    // returns nothing
-    public void interactNeighbours (ArrayList<Cell> neighbours) {
-        if (neighbours.size() > 6) {
+    public void check_adj_cells(ArrayList<Cell> adj_cells, int numOf_adj_cells) {
+        if (adj_cells.size() > numOf_adj_cells) {
             System.out.println("Too crowded, potential to die!");
         } else {
             System.out.println("System is healthy");
         }
     }
+    }
 
-}
+    public void interactNeighbours (ArrayList<Cell> neighbours) {
+        check_adj_cells(neighbours);
+    }
 
